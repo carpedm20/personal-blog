@@ -48,11 +48,15 @@ get('/write', function() {
 });
 
 get('/about', function() {
-  render('about');
+  render('main');
 });
 
 get('/tools', function() {
   render('tools');
+});
+
+get('/etc', function() {
+  render('etc');
 });
 
 // The post page

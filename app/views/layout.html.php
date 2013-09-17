@@ -16,7 +16,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
   <!-- Syntax -->
-  <link rel="stylesheet" href="highlighter/prettify.css" />
+  <link rel="stylesheet" href="<?php echo site_url()?>highlighter/prettify.css" />
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
   <!--[if lt IE 9]>
@@ -28,7 +28,7 @@
 
 	<aside>
 
-    <img src="<?php echo config('site.url')?>assets/img/middle.png" style="margin-bottom:15px; opacity:0.8; max-width:220px" width="90%">
+    <a href="<?php echo site_url() ?>"><img src="<?php echo config('site.url')?>assets/img/middle.png" style="margin-bottom:15px; opacity:0.8; max-width:220px" width="90%"></a>
 		<!--<h1><a href="<?php echo site_url() ?>"><?php echo config('blog.title') ?></a></h1>-->
 
 		<p class="description"><?php echo config('blog.description')?></p>
@@ -37,6 +37,7 @@
 			<li><a href="<?php echo site_url() ?>">Home</a></li>
 			<li><a href="<?php echo site_url() ?>about/">About</a></li>
 			<li><a href="<?php echo site_url() ?>tools/">Tools</a></li>
+			<li><a href="<?php echo site_url() ?>etc/">ETC</a></li>
 		</ul>
 
 		<p class="author"><?php echo config('blog.authorbio') ?></p>
