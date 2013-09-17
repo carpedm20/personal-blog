@@ -1,5 +1,8 @@
 <?php
 
+include 'Markdown.php';
+use \Michelf\Markdown;
+
 use dflydev\markdown\MarkdownParser;
 use \Suin\RSSWriter\Feed;
 use \Suin\RSSWriter\Channel;
@@ -36,7 +39,7 @@ function get_posts($page = 1, $perpage = 0){
 	$tmp = array();
 
 	// Create a new instance of the markdown parser
-	$md = new MarkdownParser();
+	//$md = new MarkdownParser();
 	
 	foreach($posts as $k=>$v){
 
@@ -50,12 +53,36 @@ function get_posts($page = 1, $perpage = 0){
 		$post->url = site_url().date('Y/m', $post->date).'/'.str_replace('.md','',$arr[1]);
 
 		// Get the contents and convert it to HTML
-		$content = $md->transformMarkdown(file_get_contents($v));
+		//$content = $md->transformMarkdown(file_get_contents($v));
 
-		// Extract the title and body
+    // new markdown by carpedm20
+    $text = file_get_contents($v);
+    $new_text = "";
+    $code = False;
+
+    foreach(preg_split("/((\r?\n)|(\r\n?))/", $text) as $line){
+        if(strpos($line, "[code]") !== FALSE) {
+            $code = True;
+            continue;
+        }
+
+        if(strpos($line, "[/code]") !== FALSE) {
+            $code = False;
+            continue;
+        }
+
+        if($code)
+            $new_text .= "    ".$line."\r\n";
+        else
+            $new_text .= $line."\r\n";
+    }
+
+    $content = Markdown::defaultTransform($new_text);
+
+		// Extract the title and body -> changed by carpedm20
 		$arr = explode('</h1>', $content);
 		$post->title = str_replace('<h1>','',$arr[0]);
-		$post->body = $arr[1];
+		$post->body = substr($content, strlen($post->title)+9);
 
 		$tmp[] = $post;
 	}

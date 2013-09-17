@@ -1,5 +1,15 @@
 <?php
 
+
+/*------------------
+   For Debug 
+ ------------------*/
+/*
+error_reporting(E_ALL); 
+ini_set("display_errors", 1); 
+echo $there_is_no;
+*/
+
 // This is the composer autoloader. Used by
 // the markdown parser and RSS feed builder.
 require 'vendor/autoload.php';
@@ -33,19 +43,32 @@ get('/index', function () {
 	));
 });
 
+get('/write', function() {
+  render('write');
+});
+
+get('/about', function() {
+  render('about');
+});
+
+get('/tools', function() {
+  render('tools');
+});
+
+// The post page
 // The post page
 get('/:year/:month/:name',function($year, $month, $name){
 
-    $post = find_post($year, $month, $name);
+	$post = find_post($year, $month, $name);
 
-    if(!$post){
-        not_found();
-    }
+	if(!$post){
+		not_found();
+	}
 
-    render('post', array(
-        'title' => $post->title .' ⋅ ' . config('blog.title'),
-        'p' => $post
-    ));
+	render('post',array(
+		'title' => $post->title .' ⋅ ' . config('blog.title'),
+		'p' => $post
+	));
 });
 
 // The JSON API
@@ -76,3 +99,4 @@ get('.*',function(){
 
 // Serve the blog
 dispatch();
+

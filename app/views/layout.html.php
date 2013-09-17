@@ -13,7 +13,13 @@
 	<link href="<?php echo site_url() ?>assets/css/style.css" rel="stylesheet" />
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&subset=latin,cyrillic-ext" rel="stylesheet" />
 
-	<!--[if lt IE 9]>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+  <!-- Syntax -->
+  <link rel="stylesheet" href="highlighter/prettify.css" />
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+  <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	
@@ -22,13 +28,15 @@
 
 	<aside>
 
-		<h1><a href="<?php echo site_url() ?>"><?php echo config('blog.title') ?></a></h1>
+    <img src="<?php echo config('site.url')?>assets/img/middle.png" style="margin-bottom:15px; opacity:0.8; max-width:220px" width="90%">
+		<!--<h1><a href="<?php echo site_url() ?>"><?php echo config('blog.title') ?></a></h1>-->
 
 		<p class="description"><?php echo config('blog.description')?></p>
 
 		<ul>
 			<li><a href="<?php echo site_url() ?>">Home</a></li>
-			<li><a href="http://tutorialzine.com/contact/">Contact Us</a></li>
+			<li><a href="<?php echo site_url() ?>about/">About</a></li>
+			<li><a href="<?php echo site_url() ?>tools/">Tools</a></li>
 		</ul>
 
 		<p class="author"><?php echo config('blog.authorbio') ?></p>
