@@ -12,6 +12,14 @@
     </div>
    </div>
 
+   <div class="slide" id="snake">
+    <h3>Snake</h3>
+    <div style="text-align:center">
+     <iframe src="http://unif.wo.tc/snake.php" style="border: 0" width="100%" height="288" frameborder="0" scrolling="no"></iframe>
+     <iframe src="http://unif.wo.tc/snakeblack.php" style="border: 0" width="100%" height="288" frameborder="0" scrolling="no"></iframe>
+    </div>
+   </div>
+
    <div class="slide" id="hexabot">
    <h3>HeXA Bot - 2013.06</h3>
    <a href="https://pypi.python.org/pypi/kakao"><img src="<?echo config('site.url')?>uploads/hexabot2.png" style="width:100%"></a>
