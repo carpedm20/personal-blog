@@ -24,7 +24,7 @@
 	<![endif]-->
 	
 </head>
-<body>
+<body bgcolor="white">
 
 	<aside>
 
