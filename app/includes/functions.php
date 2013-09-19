@@ -68,6 +68,7 @@ function get_posts($page = 1, $perpage = 0){
 
         if(strpos($line, "[/code]") !== FALSE) {
             $code = False;
+            $new_text .= "<br />";
             continue;
         }
 
